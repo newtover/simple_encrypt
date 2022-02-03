@@ -10,6 +10,19 @@ crypto_stream(key, nonce, message)
     encrypts and decrypts byte message using 32-byte key and 8-byte nonce
 ```
 
+```
+>>> import os
+>>> key = os.urandom(32)
+>>> nonce = os.urandom(8)
+>>> import simple_encrypt
+>>> message = b'Salsa20 and the closely related ChaCha are stream ciphers developed by Daniel J. Bernstein.'
+>>> simple_encrypt.crypto_stream(key, nonce, message)
+b'\x01\'\xc4\xdfJ\xc2!\x88\x94\x9a\xc4\xc2@\x08\x16\n\xafD="\xfc\xb2\x96?C|=\xde\r\xac;\x17\xd0\xcb\xf1J\x9c\xb13\xa59\xe0*\x0b \xfd\xb0!\xd6\x8d\x89U\xb23c\x15d\xc8\xb8bn&b\x93\xbb\xb9w\x1c(\xcc8e\xaf\xd5\r\xc7r\xc9\xe6\xaa\x9c\x1f\x9b\xd9\xfew\xe7cRa~'
+>>> simple_encrypt.crypto_stream(key, nonce, _)
+b'Salsa20 and the closely related ChaCha are stream ciphers developed by Daniel J. Bernstein.'
+```
+
+
 The module can be installed as 
 
 ```
