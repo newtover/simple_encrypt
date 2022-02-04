@@ -40,5 +40,5 @@ usage: A simple script that encodes/decodes stdin using salsa20 and outputs the 
 
 optional arguments:
   -h, --help  show this help message and exit
-  --key KEY   File with base64-encrypted 32-byte key and 8-byte nonce
+  --key KEY   File with hex-encoded 32-byte key and 8-byte nonce
 ```

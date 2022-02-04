@@ -1,4 +1,3 @@
-import base64
 import ctypes
 from pathlib import Path
 import sys
@@ -68,18 +67,18 @@ def test1():
 
 
 def decode_key(path):
-    with path.open('rb') as f1:
-        encoded = f1.read()
-    decoded = base64.decodebytes(encoded)
+    with path.open('r', encoding='ascii') as f1:
+        encoded = f1.read(80)
+    decoded = bytes(bytearray.fromhex(encoded))
     if len(decoded) != 40:
-        raise ValueError("Decoded base64 value is not 40 bytes long")
+        raise ValueError("Decoded hex value is not 40 bytes long")
     return decoded[:32], decoded[32:]
 
 
 def main():
     import argparse
     parser = argparse.ArgumentParser("A simple script that encodes/decodes stdin using salsa20 and outputs the result into stdout\n(It sucks the whole intput into memory.)\n")
-    parser.add_argument("--key", type=Path, required=True, help="File with base64-encrypted 32-byte key and 8-byte nonce")
+    parser.add_argument("--key", type=Path, required=True, help="File with hex-encoded 32-byte key and 8-byte nonce")
     args = parser.parse_args()
 
     if not args.key.exists():
