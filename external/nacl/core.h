@@ -12,4 +12,4 @@ int crypto_core(
 
 #define crypto_core_salsa20 crypto_core
 
-#endif _CORE_H
+#endif /* _CORE_H */

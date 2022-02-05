@@ -3,4 +3,4 @@
 
 #include "core.h"
 
-#endif _CRYPTO_CORE_SALSA20_H
+#endif /* _CRYPTO_CORE_SALSA20_H */

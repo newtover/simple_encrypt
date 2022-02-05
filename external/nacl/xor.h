@@ -12,4 +12,4 @@ int crypto_stream_xor(
   const unsigned char *k
 );
 
-#endif _XOR_H
+#endif /* _XOR_H */
