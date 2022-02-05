@@ -5,13 +5,14 @@
 #include <fcntl.h>
 #include "external/nacl/xor.h"
 
+#define MEMORY_STEP 100000
+
 
 int main(int argc, char *argv[])
 {
     int size_read;
-    int MEMORY_STEP = 100000;
-    int allocated_size = MEMORY_STEP;
-    int actual_size = 0;
+    unsigned int allocated_size = MEMORY_STEP;
+    unsigned int actual_size = 0;
 
     unsigned char* file_contents = malloc(allocated_size);
     unsigned char* new_p;
